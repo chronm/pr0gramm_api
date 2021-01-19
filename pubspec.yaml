@@ -1,0 +1,34 @@
+name: pr0gramm_api
+description: A starting point for Dart libraries or applications.
+# version: 1.0.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+
+dependencies:
+  dio: 3.0.10
+  dio_cookie_manager: 1.0.0
+  dio_http2_adapter:  1.0.1
+  dio_http_cache: 0.2.11
+#  retrofit: 1.3.4+1
+  retrofit:
+    git:
+      url: https://github.com/kevinraddatz/retrofit.dart.git
+      path: annotation
+      ref: temp
+  json_annotation: 3.1.1
+  cookie_jar: 1.0.1
+  meta: 1.3.0-nullsafety.6
+
+dev_dependencies:
+  build_runner: 1.10.12
+  #retrofit_generator: 1.4.1+1
+  retrofit_generator:
+    git:
+      url: https://github.com/kevinraddatz/retrofit.dart.git
+      path: generator
+      ref: temp
+  pedantic: 1.9.2
+  test: 1.15.7
+  json_serializable: 3.5.1
