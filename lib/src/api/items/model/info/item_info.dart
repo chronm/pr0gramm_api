@@ -9,7 +9,10 @@ class ItemInfo {
   List<Tag> tags;
   List<ItemComment> comments;
 
-  ItemInfo({this.tags, this.comments,});
+  ItemInfo({
+    this.tags,
+    this.comments,
+  });
 
   factory ItemInfo.fromJson(Map<String, dynamic> json) => _$ItemInfoFromJson(json);
 }

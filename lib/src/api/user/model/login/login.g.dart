@@ -11,9 +11,7 @@ Login _$LoginFromJson(Map<String, dynamic> json) {
     error: json['error'] as String,
     success: json['success'] as bool,
     identifier: json['identifier'] as String,
-    ban: json['ban'] == null
-        ? null
-        : BanInfo.fromJson(json['ban'] as Map<String, dynamic>),
+    ban: json['ban'] == null ? null : BanInfo.fromJson(json['ban'] as Map<String, dynamic>),
   );
 }
 

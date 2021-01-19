@@ -10,4 +10,3 @@ class Uploaded {
 
   factory Uploaded.fromJson(Map<String, dynamic> json) => _$UploadedFromJson(json);
 }
-

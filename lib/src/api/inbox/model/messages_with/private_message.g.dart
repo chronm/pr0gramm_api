@@ -8,21 +8,17 @@ part of 'private_message.dart';
 
 PrivateMessage _$PrivateMessageFromJson(Map<String, dynamic> json) {
   return PrivateMessage(
-    created: json['created'] == null
-        ? null
-        : DateTime.parse(json['created'] as String),
+    created: json['created'] == null ? null : DateTime.parse(json['created'] as String),
     id: json['id'] as int,
     mark: _$enumDecodeNullable(_$UserMarkEnumMap, json['mark']),
     message: json['message'] as String,
     name: json['name'] as String,
-    read:
-        json['read'] == null ? null : ReadStatus.fromJson(json['read'] as int),
+    read: json['read'] == null ? null : ReadStatus.fromJson(json['read'] as int),
     sent: json['sent'] as bool,
   );
 }
 
-Map<String, dynamic> _$PrivateMessageToJson(PrivateMessage instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PrivateMessageToJson(PrivateMessage instance) => <String, dynamic>{
       'created': instance.created?.toIso8601String(),
       'id': instance.id,
       'mark': _$UserMarkEnumMap[instance.mark],
@@ -42,9 +38,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '

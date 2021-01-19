@@ -10,9 +10,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
   return User(
     id: json['id'] as int,
     name: json['name'] as String,
-    registered: json['registered'] == null
-        ? null
-        : DateTime.parse(json['registered'] as String),
+    registered: json['registered'] == null ? null : DateTime.parse(json['registered'] as String),
     score: json['score'] as int,
     up: json['up'] as int,
     down: json['down'] as int,
@@ -48,9 +46,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '

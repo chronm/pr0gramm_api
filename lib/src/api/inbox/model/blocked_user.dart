@@ -13,8 +13,7 @@ class BlockedUser {
     this.name,
   });
 
-  factory BlockedUser.fromJson(Map<String, dynamic> json) =>
-      _$BlockedUserFromJson(json);
+  factory BlockedUser.fromJson(Map<String, dynamic> json) => _$BlockedUserFromJson(json);
 }
 
 @JsonSerializable()

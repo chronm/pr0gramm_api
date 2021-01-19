@@ -12,7 +12,6 @@ SuggestedTags _$SuggestedTagsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SuggestedTagsToJson(SuggestedTags instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$SuggestedTagsToJson(SuggestedTags instance) => <String, dynamic>{
       'tags': instance.tags,
     };

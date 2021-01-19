@@ -11,7 +11,13 @@ class Cookie {
   bool paid;
   String id;
 
-  Cookie({this.name, this.a, this.pp, this.paid, this.id,});
+  Cookie({
+    this.name,
+    this.a,
+    this.pp,
+    this.paid,
+    this.id,
+  });
 
-  factory Cookie.fromJson(Map<String, dynamic> json)  => _$CookieFromJson(json);
+  factory Cookie.fromJson(Map<String, dynamic> json) => _$CookieFromJson(json);
 }

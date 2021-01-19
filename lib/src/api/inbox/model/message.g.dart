@@ -9,11 +9,8 @@ part of 'message.dart';
 Message _$MessageFromJson(Map<String, dynamic> json) {
   return Message(
     blocked: json['blocked'] as bool,
-    created: json['created'] == null
-        ? null
-        : DateTime.parse(json['created'] as String),
-    flags:
-        json['flags'] == null ? null : ItemFlags.fromJson(json['flags'] as int),
+    created: json['created'] == null ? null : DateTime.parse(json['created'] as String),
+    flags: json['flags'] == null ? null : ItemFlags.fromJson(json['flags'] as int),
     id: json['id'] as int,
     image: json['image'] as String,
     itemId: json['itemId'] as int,
@@ -24,9 +21,7 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
     score: json['score'] as int,
     senderId: json['senderId'] as int,
     thumb: json['thumb'] as String,
-    type: json['type'] == null
-        ? null
-        : MessageType.fromJson(json['type'] as String),
+    type: json['type'] == null ? null : MessageType.fromJson(json['type'] as String),
   );
 }
 
@@ -57,9 +52,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '
@@ -99,14 +92,10 @@ const _$UserMarkEnumMap = {
 
 MessageWrapper _$MessageWrapperFromJson(Map<String, dynamic> json) {
   return MessageWrapper(
-    messages: (json['messages'] as List)
-        ?.map((e) =>
-            e == null ? null : Message.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    messages: (json['messages'] as List)?.map((e) => e == null ? null : Message.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 
-Map<String, dynamic> _$MessageWrapperToJson(MessageWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$MessageWrapperToJson(MessageWrapper instance) => <String, dynamic>{
       'messages': instance.messages,
     };

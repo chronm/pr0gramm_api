@@ -11,7 +11,11 @@ class MessageWith {
   @JsonKey(name: 'with')
   SimpleUser user;
 
-  MessageWith({this.atEnd, this.messages, this.user,});
+  MessageWith({
+    this.atEnd,
+    this.messages,
+    this.user,
+  });
 
   factory MessageWith.fromJson(Map<String, dynamic> json) => _$MessageWithFromJson(json);
 }

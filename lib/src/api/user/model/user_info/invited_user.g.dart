@@ -11,14 +11,11 @@ InvitedUser _$InvitedUserFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     mark: _$enumDecodeNullable(_$UserMarkEnumMap, json['mark']),
     email: json['email'] as String,
-    created: json['created'] == null
-        ? null
-        : DateTime.parse(json['created'] as String),
+    created: json['created'] == null ? null : DateTime.parse(json['created'] as String),
   );
 }
 
-Map<String, dynamic> _$InvitedUserToJson(InvitedUser instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$InvitedUserToJson(InvitedUser instance) => <String, dynamic>{
       'name': instance.name,
       'mark': _$UserMarkEnumMap[instance.mark],
       'email': instance.email,
@@ -35,9 +32,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '

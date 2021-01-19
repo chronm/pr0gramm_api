@@ -28,14 +28,10 @@ Map<String, dynamic> _$ScheduledToJson(Scheduled instance) => <String, dynamic>{
 
 ScheduledWrapper _$ScheduledWrapperFromJson(Map<String, dynamic> json) {
   return ScheduledWrapper(
-    items: (json['items'] as List)
-        ?.map((e) =>
-            e == null ? null : Scheduled.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    items: (json['items'] as List)?.map((e) => e == null ? null : Scheduled.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 
-Map<String, dynamic> _$ScheduledWrapperToJson(ScheduledWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ScheduledWrapperToJson(ScheduledWrapper instance) => <String, dynamic>{
       'items': instance.items,
     };

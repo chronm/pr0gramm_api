@@ -8,13 +8,8 @@ part of 'user_info.dart';
 
 UserInfo _$UserInfoFromJson(Map<String, dynamic> json) {
   return UserInfo(
-    account: json['account'] == null
-        ? null
-        : Account.fromJson(json['account'] as Map<String, dynamic>),
-    invited: (json['invited'] as List)
-        ?.map((e) =>
-            e == null ? null : InvitedUser.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    account: json['account'] == null ? null : Account.fromJson(json['account'] as Map<String, dynamic>),
+    invited: (json['invited'] as List)?.map((e) => e == null ? null : InvitedUser.fromJson(e as Map<String, dynamic>))?.toList(),
     payments: json['payments'] as int,
     invitedDetached: json['invitedDetached'] as int,
   );

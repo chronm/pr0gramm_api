@@ -11,7 +11,12 @@ class UserInfo {
   int payments;
   int invitedDetached;
 
-  UserInfo({this.account, this.invited, this.payments, this.invitedDetached,});
+  UserInfo({
+    this.account,
+    this.invited,
+    this.payments,
+    this.invitedDetached,
+  });
 
   factory UserInfo.fromJson(Map<String, dynamic> json) => _$UserInfoFromJson(json);
 }

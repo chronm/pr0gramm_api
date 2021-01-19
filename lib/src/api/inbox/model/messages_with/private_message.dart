@@ -13,7 +13,15 @@ class PrivateMessage {
   ReadStatus read;
   bool sent;
 
-  PrivateMessage({this.created, this.id, this.mark, this.message, this.name, this.read, this.sent,});
+  PrivateMessage({
+    this.created,
+    this.id,
+    this.mark,
+    this.message,
+    this.name,
+    this.read,
+    this.sent,
+  });
 
   factory PrivateMessage.fromJson(Map<String, dynamic> json) => _$PrivateMessageFromJson(json);
 }

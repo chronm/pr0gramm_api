@@ -8,12 +8,8 @@ part of 'liked_comment.dart';
 
 LikedComment _$LikedCommentFromJson(Map<String, dynamic> json) {
   return LikedComment(
-    ccreated: json['ccreated'] == null
-        ? null
-        : DateTime.parse(json['ccreated'] as String),
-    created: json['created'] == null
-        ? null
-        : DateTime.parse(json['created'] as String),
+    ccreated: json['ccreated'] == null ? null : DateTime.parse(json['ccreated'] as String),
+    created: json['created'] == null ? null : DateTime.parse(json['created'] as String),
     content: json['content'] as String,
     up: json['up'] as int,
     down: json['down'] as int,
@@ -25,8 +21,7 @@ LikedComment _$LikedCommentFromJson(Map<String, dynamic> json) {
   )..thumb = json['thumb'] as String;
 }
 
-Map<String, dynamic> _$LikedCommentToJson(LikedComment instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LikedCommentToJson(LikedComment instance) => <String, dynamic>{
       'ccreated': instance.ccreated?.toIso8601String(),
       'created': instance.created?.toIso8601String(),
       'content': instance.content,
@@ -50,9 +45,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '
@@ -93,21 +86,14 @@ const _$UserMarkEnumMap = {
 LikedCommentWrapper _$LikedCommentWrapperFromJson(Map<String, dynamic> json) {
   return LikedCommentWrapper(
     likesArePublic: json['likesArePublic'] as bool,
-    comments: (json['comments'] as List)
-        ?.map((e) =>
-            e == null ? null : LikedComment.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    comments: (json['comments'] as List)?.map((e) => e == null ? null : LikedComment.fromJson(e as Map<String, dynamic>))?.toList(),
     hasOlder: json['hasOlder'] as bool,
     hasNewer: json['hasNewer'] as bool,
-    user: json['user'] == null
-        ? null
-        : SimpleUser.fromJson(json['user'] as Map<String, dynamic>),
+    user: json['user'] == null ? null : SimpleUser.fromJson(json['user'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$LikedCommentWrapperToJson(
-        LikedCommentWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LikedCommentWrapperToJson(LikedCommentWrapper instance) => <String, dynamic>{
       'likesArePublic': instance.likesArePublic,
       'comments': instance.comments,
       'hasOlder': instance.hasOlder,

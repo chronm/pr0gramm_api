@@ -13,9 +13,7 @@ Item _$ItemFromJson(Map<String, dynamic> json) {
     userId: json['userId'] as int,
     up: json['up'] as int,
     down: json['down'] as int,
-    created: json['created'] == null
-        ? null
-        : DateTime.parse(json['created'] as String),
+    created: json['created'] == null ? null : DateTime.parse(json['created'] as String),
     image: json['image'] as String,
     thumb: json['thumb'] as String,
     fullsize: json['fullsize'] as String,
@@ -23,8 +21,7 @@ Item _$ItemFromJson(Map<String, dynamic> json) {
     height: json['height'] as int,
     audio: json['audio'] as bool,
     source: json['source'] as String,
-    flags:
-        json['flags'] == null ? null : ItemFlags.fromJson(json['flags'] as int),
+    flags: json['flags'] == null ? null : ItemFlags.fromJson(json['flags'] as int),
     user: json['user'] as String,
     mark: _$enumDecodeNullable(_$UserMarkEnumMap, json['mark']),
     gift: json['gift'] as int,
@@ -61,9 +58,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '
@@ -106,15 +101,11 @@ ItemWrapper _$ItemWrapperFromJson(Map<String, dynamic> json) {
     atEnd: json['atEnd'] as bool,
     atStart: json['atStart'] as bool,
     error: json['error'] as String,
-    items: (json['items'] as List)
-        ?.map(
-            (e) => e == null ? null : Item.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    items: (json['items'] as List)?.map((e) => e == null ? null : Item.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 
-Map<String, dynamic> _$ItemWrapperToJson(ItemWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ItemWrapperToJson(ItemWrapper instance) => <String, dynamic>{
       'atEnd': instance.atEnd,
       'atStart': instance.atStart,
       'error': instance.error,

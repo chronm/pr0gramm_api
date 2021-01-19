@@ -8,13 +8,8 @@ part of 'item_info.dart';
 
 ItemInfo _$ItemInfoFromJson(Map<String, dynamic> json) {
   return ItemInfo(
-    tags: (json['tags'] as List)
-        ?.map((e) => e == null ? null : Tag.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    comments: (json['comments'] as List)
-        ?.map((e) =>
-            e == null ? null : ItemComment.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    tags: (json['tags'] as List)?.map((e) => e == null ? null : Tag.fromJson(e as Map<String, dynamic>))?.toList(),
+    comments: (json['comments'] as List)?.map((e) => e == null ? null : ItemComment.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 

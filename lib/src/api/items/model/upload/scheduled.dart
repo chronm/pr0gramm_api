@@ -13,7 +13,14 @@ class Scheduled {
   List<String> tags;
   String thumb;
 
-  Scheduled({this.comment, this.created, this.id, this.scheduled, this.tags, this.thumb,});
+  Scheduled({
+    this.comment,
+    this.created,
+    this.id,
+    this.scheduled,
+    this.tags,
+    this.thumb,
+  });
 
   factory Scheduled.fromJson(Map<String, dynamic> json) => _$ScheduledFromJson(json);
 }

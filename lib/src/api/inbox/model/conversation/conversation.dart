@@ -28,7 +28,10 @@ class ConversationWrapper {
   bool atEnd;
   List<Conversation> conversations;
 
-  ConversationWrapper({this.atEnd, this.conversations,});
+  ConversationWrapper({
+    this.atEnd,
+    this.conversations,
+  });
 
   factory ConversationWrapper.fromJson(Map<String, dynamic> json) => _$ConversationWrapperFromJson(json);
 }

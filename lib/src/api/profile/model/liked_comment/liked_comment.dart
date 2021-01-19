@@ -42,7 +42,13 @@ class LikedCommentWrapper {
   bool hasNewer;
   SimpleUser user;
 
-  LikedCommentWrapper({this.likesArePublic, this.comments, this.hasOlder, this.hasNewer, this.user,});
+  LikedCommentWrapper({
+    this.likesArePublic,
+    this.comments,
+    this.hasOlder,
+    this.hasNewer,
+    this.user,
+  });
 
   factory LikedCommentWrapper.fromJson(Map<String, dynamic> json) => _$LikedCommentWrapperFromJson(json);
 }

@@ -11,9 +11,7 @@ ItemComment _$ItemCommentFromJson(Map<String, dynamic> json) {
     id: json['id'] as int,
     parent: json['parent'] as int,
     content: json['content'] as String,
-    created: json['created'] == null
-        ? null
-        : DateTime.parse(json['created'] as String),
+    created: json['created'] == null ? null : DateTime.parse(json['created'] as String),
     up: json['up'] as int,
     down: json['down'] as int,
     confidence: (json['confidence'] as num)?.toDouble(),
@@ -22,8 +20,7 @@ ItemComment _$ItemCommentFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemCommentToJson(ItemComment instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ItemCommentToJson(ItemComment instance) => <String, dynamic>{
       'id': instance.id,
       'parent': instance.parent,
       'content': instance.content,
@@ -45,9 +42,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '

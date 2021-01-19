@@ -36,7 +36,6 @@ class BanReasonTypeConverter implements RequestConverter<BanReasonType, int> {
   int convert(BanReasonType object) => object.value;
 }
 
-
 class ItemFlagConverter implements RequestConverter<ItemFlag, String> {
   const ItemFlagConverter();
 

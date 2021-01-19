@@ -1,5 +1,4 @@
 class ReadStatus {
-
   static const ReadStatus OTHER = ReadStatus._(-1);
   static const ReadStatus UNREAD = ReadStatus._(0);
   static const ReadStatus READ = ReadStatus._(1);

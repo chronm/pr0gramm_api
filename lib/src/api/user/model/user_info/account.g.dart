@@ -15,9 +15,7 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
     isInvited: json['isInvited'] as bool,
     mark: _$enumDecodeNullable(_$UserMarkEnumMap, json['mark']),
     markDefault: _$enumDecodeNullable(_$UserMarkEnumMap, json['markDefault']),
-    paidUntil: json['paidUntil'] == null
-        ? null
-        : DateTime.parse(json['paidUntil'] as String),
+    paidUntil: json['paidUntil'] == null ? null : DateTime.parse(json['paidUntil'] as String),
   );
 }
 
@@ -42,9 +40,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '

@@ -22,14 +22,7 @@ class _ProfileApi implements ProfileApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'name': name};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/info',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/info', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = Profile.fromJson(_result.data);
     return value;
   }
@@ -40,21 +33,9 @@ class _ProfileApi implements ProfileApi {
     ArgumentError.checkNotNull(before, 'before');
     ArgumentError.checkNotNull(name, 'name');
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'flags': flags?.toJson(),
-      r'before': DateTimeConverter().convert(before),
-      r'name': name
-    };
+    final queryParameters = <String, dynamic>{r'flags': flags?.toJson(), r'before': DateTimeConverter().convert(before), r'name': name};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>(
-        '/comments/{flags}',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/comments/{flags}', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = ProfileCommentWrapper.fromJson(_result.data);
     return value;
   }
@@ -65,20 +46,9 @@ class _ProfileApi implements ProfileApi {
     ArgumentError.checkNotNull(before, 'before');
     ArgumentError.checkNotNull(name, 'name');
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'flags': flags?.toJson(),
-      r'before': DateTimeConverter().convert(before),
-      r'name': name
-    };
+    final queryParameters = <String, dynamic>{r'flags': flags?.toJson(), r'before': DateTimeConverter().convert(before), r'name': name};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/commentlikes',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/commentlikes', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = LikedCommentWrapper.fromJson(_result.data);
     return value;
   }
@@ -92,15 +62,7 @@ class _ProfileApi implements ProfileApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'name': name, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/subscribe',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/subscribe', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     final value = Subscribe.fromJson(_result.data);
     return value;
   }
@@ -114,15 +76,7 @@ class _ProfileApi implements ProfileApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'name': name, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/subscribe',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/subscribe', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     final value = Subscribe.fromJson(_result.data);
     return value;
   }
@@ -136,15 +90,7 @@ class _ProfileApi implements ProfileApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'name': name, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/follow',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/follow', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     final value = Follow.fromJson(_result.data);
     return value;
   }
@@ -158,15 +104,7 @@ class _ProfileApi implements ProfileApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'name': name, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/unfollow',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/unfollow', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     final value = Follow.fromJson(_result.data);
     return value;
   }
@@ -180,15 +118,7 @@ class _ProfileApi implements ProfileApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'name': name, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/block',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/block', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     final value = Block.fromJson(_result.data);
     return value;
   }
@@ -202,15 +132,7 @@ class _ProfileApi implements ProfileApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'name': name, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/unblock',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/unblock', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     final value = Block.fromJson(_result.data);
     return value;
   }

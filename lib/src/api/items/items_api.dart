@@ -31,8 +31,7 @@ abstract class ItemsApi {
 
   @POST('/vote')
   @FormUrlEncoded()
-  Future<void> voteItem(@Field('id') int id, @Field('vote') Vote vote,
-      {@required @Field('_nonce') String nonce});
+  Future<void> voteItem(@Field('id') int id, @Field('vote') Vote vote, {@required @Field('_nonce') String nonce});
 
   @POST('/ratelimited')
   Future<void> ratelimit();

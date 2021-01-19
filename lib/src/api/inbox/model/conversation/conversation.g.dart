@@ -9,17 +9,14 @@ part of 'conversation.dart';
 Conversation _$ConversationFromJson(Map<String, dynamic> json) {
   return Conversation(
     blocked: json['blocked'] as bool,
-    lastMessage: json['lastMessage'] == null
-        ? null
-        : DateTime.parse(json['lastMessage'] as String),
+    lastMessage: json['lastMessage'] == null ? null : DateTime.parse(json['lastMessage'] as String),
     mark: _$enumDecodeNullable(_$UserMarkEnumMap, json['mark']),
     name: json['name'] as String,
     unreadCount: json['unreadCount'] as int,
   );
 }
 
-Map<String, dynamic> _$ConversationToJson(Conversation instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ConversationToJson(Conversation instance) => <String, dynamic>{
       'blocked': instance.blocked,
       'lastMessage': instance.lastMessage?.toIso8601String(),
       'mark': _$UserMarkEnumMap[instance.mark],
@@ -37,9 +34,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '
@@ -80,16 +75,11 @@ const _$UserMarkEnumMap = {
 ConversationWrapper _$ConversationWrapperFromJson(Map<String, dynamic> json) {
   return ConversationWrapper(
     atEnd: json['atEnd'] as bool,
-    conversations: (json['conversations'] as List)
-        ?.map((e) =>
-            e == null ? null : Conversation.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    conversations: (json['conversations'] as List)?.map((e) => e == null ? null : Conversation.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 
-Map<String, dynamic> _$ConversationWrapperToJson(
-        ConversationWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ConversationWrapperToJson(ConversationWrapper instance) => <String, dynamic>{
       'atEnd': instance.atEnd,
       'conversations': instance.conversations,
     };

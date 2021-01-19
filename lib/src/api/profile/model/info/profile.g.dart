@@ -8,30 +8,14 @@ part of 'profile.dart';
 
 Profile _$ProfileFromJson(Map<String, dynamic> json) {
   return Profile(
-    appLinks: (json['appLinks'] as List)
-        ?.map((e) =>
-            e == null ? null : AppLink.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    badges: (json['badges'] as List)
-        ?.map(
-            (e) => e == null ? null : Badge.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    appLinks: (json['appLinks'] as List)?.map((e) => e == null ? null : AppLink.fromJson(e as Map<String, dynamic>))?.toList(),
+    badges: (json['badges'] as List)?.map((e) => e == null ? null : Badge.fromJson(e as Map<String, dynamic>))?.toList(),
     blocked: json['blocked'] as bool,
     collectedCount: json['collectedCount'] as int,
-    collections: (json['collections'] as List)
-        ?.map((e) =>
-            e == null ? null : Collection.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    collections: (json['collections'] as List)?.map((e) => e == null ? null : Collection.fromJson(e as Map<String, dynamic>))?.toList(),
     commentCount: json['commentCount'] as int,
-    comments: (json['comments'] as List)
-        ?.map((e) => e == null
-            ? null
-            : ProfileComment.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    commentsLikes: (json['comments_likes'] as List)
-        ?.map((e) =>
-            e == null ? null : LikedComment.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    comments: (json['comments'] as List)?.map((e) => e == null ? null : ProfileComment.fromJson(e as Map<String, dynamic>))?.toList(),
+    commentsLikes: (json['comments_likes'] as List)?.map((e) => e == null ? null : LikedComment.fromJson(e as Map<String, dynamic>))?.toList(),
     commentsLikesCount: json['commentsLikesCount'] as int,
     followCount: json['followCount'] as int,
     following: json['following'] as bool,
@@ -40,13 +24,8 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
     subscribed: json['subscribed'] as bool,
     tagCount: json['tagCount'] as int,
     uploadCount: json['uploadCount'] as int,
-    uploads: (json['uploads'] as List)
-        ?.map((e) =>
-            e == null ? null : Upload.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    user: json['user'] == null
-        ? null
-        : User.fromJson(json['user'] as Map<String, dynamic>),
+    uploads: (json['uploads'] as List)?.map((e) => e == null ? null : Upload.fromJson(e as Map<String, dynamic>))?.toList(),
+    user: json['user'] == null ? null : User.fromJson(json['user'] as Map<String, dynamic>),
   );
 }
 

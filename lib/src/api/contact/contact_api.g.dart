@@ -17,32 +17,16 @@ class _ContactApi implements ContactApi {
   String baseUrl;
 
   @override
-  Future<void> report(reason, customReason,
-      {nonce, userId, commentId, itemId}) async {
+  Future<void> report(reason, customReason, {nonce, userId, commentId, itemId}) async {
     ArgumentError.checkNotNull(reason, 'reason');
     ArgumentError.checkNotNull(customReason, 'customReason');
     ArgumentError.checkNotNull(nonce, 'nonce');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
-    final _data = {
-      'reason': reason,
-      'customReason': customReason,
-      '_nonce': nonce,
-      'userId': userId,
-      'commentId': commentId,
-      'itemId': itemId
-    };
+    final _data = {'reason': reason, 'customReason': customReason, '_nonce': nonce, 'userId': userId, 'commentId': commentId, 'itemId': itemId};
     _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('/report',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    await _dio.request<void>('/report', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     return null;
   }
 
@@ -55,15 +39,7 @@ class _ContactApi implements ContactApi {
     final queryParameters = <String, dynamic>{};
     final _data = {'email': email, 'subject': subject, 'message': message};
     _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('/send',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    await _dio.request<void>('/send', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     return null;
   }
 }

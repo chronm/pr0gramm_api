@@ -13,8 +13,7 @@ BlockedUser _$BlockedUserFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BlockedUserToJson(BlockedUser instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$BlockedUserToJson(BlockedUser instance) => <String, dynamic>{
       'mark': _$UserMarkEnumMap[instance.mark],
       'name': instance.name,
     };
@@ -29,9 +28,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '
@@ -71,14 +68,10 @@ const _$UserMarkEnumMap = {
 
 BlockedUserWrapper _$BlockedUserWrapperFromJson(Map<String, dynamic> json) {
   return BlockedUserWrapper(
-    blockedUsers: (json['blockedUsers'] as List)
-        ?.map((e) =>
-            e == null ? null : BlockedUser.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    blockedUsers: (json['blockedUsers'] as List)?.map((e) => e == null ? null : BlockedUser.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 
-Map<String, dynamic> _$BlockedUserWrapperToJson(BlockedUserWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$BlockedUserWrapperToJson(BlockedUserWrapper instance) => <String, dynamic>{
       'blockedUsers': instance.blockedUsers,
     };

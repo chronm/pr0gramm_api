@@ -34,8 +34,12 @@ class ProfileCommentWrapper {
   bool hasNewer;
   SimpleUser user;
 
-  ProfileCommentWrapper({this.comments, this.hasNewer, this.hasOlder, this.user,});
+  ProfileCommentWrapper({
+    this.comments,
+    this.hasNewer,
+    this.hasOlder,
+    this.user,
+  });
 
   factory ProfileCommentWrapper.fromJson(Map<String, dynamic> json) => _$ProfileCommentWrapperFromJson(json);
 }
-

@@ -8,8 +8,7 @@ part of 'follow_user.dart';
 
 FollowUser _$FollowUserFromJson(Map<String, dynamic> json) {
   return FollowUser(
-    followCreated:
-        const DateTimeConverter().fromJson(json['followCreated'] as int),
+    followCreated: const DateTimeConverter().fromJson(json['followCreated'] as int),
     itemId: json['itemId'] as int,
     lastPost: const DateTimeConverter().fromJson(json['lastPost'] as int),
     mark: _$enumDecodeNullable(_$UserMarkEnumMap, json['mark']),
@@ -19,8 +18,7 @@ FollowUser _$FollowUserFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$FollowUserToJson(FollowUser instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$FollowUserToJson(FollowUser instance) => <String, dynamic>{
       'followCreated': const DateTimeConverter().toJson(instance.followCreated),
       'itemId': instance.itemId,
       'lastPost': const DateTimeConverter().toJson(instance.lastPost),
@@ -40,9 +38,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '
@@ -82,14 +78,10 @@ const _$UserMarkEnumMap = {
 
 FollowUserWrapper _$FollowUserWrapperFromJson(Map<String, dynamic> json) {
   return FollowUserWrapper(
-    list: (json['list'] as List)
-        ?.map((e) =>
-            e == null ? null : FollowUser.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    list: (json['list'] as List)?.map((e) => e == null ? null : FollowUser.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 
-Map<String, dynamic> _$FollowUserWrapperToJson(FollowUserWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$FollowUserWrapperToJson(FollowUserWrapper instance) => <String, dynamic>{
       'list': instance.list,
     };

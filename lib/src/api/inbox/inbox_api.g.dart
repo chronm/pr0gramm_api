@@ -19,19 +19,10 @@ class _InboxApi implements InboxApi {
   @override
   Future<MessageWrapper> getAllInbox({older}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'older': DateTimeConverter().convert(older)
-    };
+    final queryParameters = <String, dynamic>{r'older': DateTimeConverter().convert(older)};
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/all',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/all', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = MessageWrapper.fromJson(_result.data);
     return value;
   }
@@ -41,14 +32,7 @@ class _InboxApi implements InboxApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/comments',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/comments', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = MessageWrapper.fromJson(_result.data);
     return value;
   }
@@ -58,14 +42,7 @@ class _InboxApi implements InboxApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/notifications',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/notifications', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = MessageWrapper.fromJson(_result.data);
     return value;
   }
@@ -75,14 +52,7 @@ class _InboxApi implements InboxApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/conversations',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/conversations', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = ConversationWrapper.fromJson(_result.data);
     return value;
   }
@@ -93,14 +63,7 @@ class _InboxApi implements InboxApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'with': name};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/messages',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/messages', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = MessageWith.fromJson(_result.data);
     return value;
   }
@@ -115,15 +78,7 @@ class _InboxApi implements InboxApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'recipientName': name, 'comment': comment, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('/post',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            contentType: 'application/x-www-form-urlencoded',
-            baseUrl: baseUrl),
-        data: _data);
+    await _dio.request<void>('/post', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
     return null;
   }
 
@@ -132,14 +87,7 @@ class _InboxApi implements InboxApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/follows',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/follows', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = MessageWrapper.fromJson(_result.data);
     return value;
   }
@@ -149,14 +97,7 @@ class _InboxApi implements InboxApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/blocklist',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/blocklist', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = BlockedUserWrapper.fromJson(_result.data);
     return value;
   }

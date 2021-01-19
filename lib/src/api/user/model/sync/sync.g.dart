@@ -8,9 +8,7 @@ part of 'sync.dart';
 
 Sync _$SyncFromJson(Map<String, dynamic> json) {
   return Sync(
-    inbox: json['inbox'] == null
-        ? null
-        : Inbox.fromJson(json['inbox'] as Map<String, dynamic>),
+    inbox: json['inbox'] == null ? null : Inbox.fromJson(json['inbox'] as Map<String, dynamic>),
     log: json['log'] as String,
     logLength: json['logLength'] as int,
   );

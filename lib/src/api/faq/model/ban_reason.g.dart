@@ -20,14 +20,10 @@ Map<String, dynamic> _$BanReasonToJson(BanReason instance) => <String, dynamic>{
 
 BanReasonWrapper _$BanReasonWrapperFromJson(Map<String, dynamic> json) {
   return BanReasonWrapper(
-    rules: (json['rules'] as List)
-        ?.map((e) =>
-            e == null ? null : BanReason.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    rules: (json['rules'] as List)?.map((e) => e == null ? null : BanReason.fromJson(e as Map<String, dynamic>))?.toList(),
   );
 }
 
-Map<String, dynamic> _$BanReasonWrapperToJson(BanReasonWrapper instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$BanReasonWrapperToJson(BanReasonWrapper instance) => <String, dynamic>{
       'rules': instance.rules,
     };

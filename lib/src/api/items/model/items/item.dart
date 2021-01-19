@@ -62,7 +62,10 @@ class ItemWrapper {
   List<Item> items;
 
   ItemWrapper({
-    this.atEnd, this.atStart, this.error, this.items,
+    this.atEnd,
+    this.atStart,
+    this.error,
+    this.items,
   });
 
   factory ItemWrapper.fromJson(Map<String, dynamic> json) => _$ItemWrapperFromJson(json);

@@ -9,8 +9,7 @@ class BanReason {
 
   BanReason({this.banReason, this.number});
 
-  factory BanReason.fromJson(Map<String, dynamic> json) =>
-      _$BanReasonFromJson(json);
+  factory BanReason.fromJson(Map<String, dynamic> json) => _$BanReasonFromJson(json);
 }
 
 @JsonSerializable()
@@ -19,8 +18,7 @@ class BanReasonWrapper {
 
   BanReasonWrapper({this.rules});
 
-  factory BanReasonWrapper.fromJson(Map<String, dynamic> json) =>
-      _$BanReasonWrapperFromJson(json);
+  factory BanReasonWrapper.fromJson(Map<String, dynamic> json) => _$BanReasonWrapperFromJson(json);
 }
 
 /// Look at ban_reasons.xlsx in the root of this library for explanation

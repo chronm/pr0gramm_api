@@ -17,14 +17,7 @@ class FollowUser {
   bool subscribed;
   String thumb;
 
-  FollowUser(
-      {this.followCreated,
-      this.itemId,
-      this.lastPost,
-      this.mark,
-      this.name,
-      this.subscribed,
-      this.thumb});
+  FollowUser({this.followCreated, this.itemId, this.lastPost, this.mark, this.name, this.subscribed, this.thumb});
 
   factory FollowUser.fromJson(Map<String, dynamic> json) => _$FollowUserFromJson(json);
 }
