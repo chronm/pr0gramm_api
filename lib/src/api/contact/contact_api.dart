@@ -10,7 +10,8 @@ abstract class ContactApi {
 
   @POST('/report')
   @FormUrlEncoded()
-  Future<void> report(@Field('reason') String reason, @Field('customReason') String customReason, {@required @Field('_nonce') String nonce, @Field('userId') int userId, @Field('commentId') int commentId, @Field('itemId') int itemId});
+  Future<void> report(@Field('reason') String reason, @Field('customReason') String customReason,
+      {@required @Field('_nonce') String nonce, @Field('userId') int userId, @Field('commentId') int commentId, @Field('itemId') int itemId});
 
   @POST('/send')
   @FormUrlEncoded()

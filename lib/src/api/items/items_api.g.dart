@@ -19,10 +19,22 @@ class _ItemsApi implements ItemsApi {
   @override
   Future<ItemWrapper> getItems({id, older, flags, promoted, user, likes, self, following, tags, collection}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'id': id, r'older': DateTimeConverter().convert(older), r'flags': flags?.toJson(), r'promoted': promoted, r'user': user, r'likes': likes, r'self': self, r'following': following, r'tags': tags, r'collection': collection};
+    final queryParameters = <String, dynamic>{
+      r'id': id,
+      r'older': DateTimeConverter().convert(older),
+      r'flags': flags?.toJson(),
+      r'promoted': promoted,
+      r'user': user,
+      r'likes': likes,
+      r'self': self,
+      r'following': following,
+      r'tags': tags,
+      r'collection': collection
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/get', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/get',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = ItemWrapper.fromJson(_result.data);
     return value;
   }
@@ -33,7 +45,8 @@ class _ItemsApi implements ItemsApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'itemId': id};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/info', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/info',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = ItemInfo.fromJson(_result.data);
     return value;
   }
@@ -48,7 +61,10 @@ class _ItemsApi implements ItemsApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'id': id, 'vote': vote, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('/vote', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    await _dio.request<void>('/vote',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     return null;
   }
 
@@ -67,7 +83,8 @@ class _ItemsApi implements ItemsApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = formData;
-    final _result = await _dio.request<Map<String, dynamic>>('/upload', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/upload',
+        queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = Uploaded.fromJson(_result.data);
     return value;
   }
@@ -96,7 +113,10 @@ class _ItemsApi implements ItemsApi {
       'scheduledTime': time
     };
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('post', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('post',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     final value = Posted.fromJson(_result.data);
     return value;
   }
@@ -106,7 +126,8 @@ class _ItemsApi implements ItemsApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/scheduled', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/scheduled',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = ScheduledWrapper.fromJson(_result.data);
     return value;
   }

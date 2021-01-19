@@ -21,7 +21,8 @@ class _UserApi implements UserApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/captcha', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/captcha',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = Captcha.fromJson(_result.data);
     return value;
   }
@@ -31,7 +32,8 @@ class _UserApi implements UserApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/info', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/info',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = UserInfo.fromJson(_result.data);
     return value;
   }
@@ -46,7 +48,10 @@ class _UserApi implements UserApi {
     final queryParameters = <String, dynamic>{};
     final _data = {'name': username, 'password': password, 'token': token, 'captcha': captcha};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/login', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/login',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     final value = Login.fromJson(_result.data);
     return value;
   }
@@ -57,7 +62,8 @@ class _UserApi implements UserApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'offset': offset};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/sync', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/sync',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = Sync.fromJson(_result.data);
     return value;
   }
@@ -71,7 +77,10 @@ class _UserApi implements UserApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'_nonce': nonce, 'id': id};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/logout', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/logout',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     final value = Logout.fromJson(_result.data);
     return value;
   }
@@ -81,7 +90,8 @@ class _UserApi implements UserApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/loggedin', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/loggedin',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = LoggedIn.fromJson(_result.data);
     return value;
   }
@@ -96,7 +106,10 @@ class _UserApi implements UserApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'currentPassword': currentPassword, 'password': password, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/changepassword', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/changepassword',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     final value = UserInfo.fromJson(_result.data);
     return value;
   }
@@ -110,7 +123,10 @@ class _UserApi implements UserApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'currentPassword': currentPassword, 'email': email, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/requestemailchange', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/requestemailchange',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     final value = UserInfo.fromJson(_result.data);
     return value;
   }
@@ -125,9 +141,19 @@ class _UserApi implements UserApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
-    final _data = {'likesArePublic': BoolConverter().convert(likesArePublic), 'favUpvote': BoolConverter().convert(favUpvote), 'showAds': BoolConverter().convert(showAds), 'userStatus': userStatus, 'theme': theme, '_nonce': nonce};
+    final _data = {
+      'likesArePublic': BoolConverter().convert(likesArePublic),
+      'favUpvote': BoolConverter().convert(favUpvote),
+      'showAds': BoolConverter().convert(showAds),
+      'userStatus': userStatus,
+      'theme': theme,
+      '_nonce': nonce
+    };
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/sitesettings', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/sitesettings',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     final value = UserInfo.fromJson(_result.data);
     return value;
   }
@@ -141,7 +167,10 @@ class _UserApi implements UserApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'deviceMail': BoolConverter().convert(deviceMail), '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/changesecurity', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/changesecurity',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, contentType: 'application/x-www-form-urlencoded', baseUrl: baseUrl),
+        data: _data);
     final value = UserInfo.fromJson(_result.data);
     return value;
   }
@@ -152,7 +181,8 @@ class _UserApi implements UserApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'flags': flags?.toJson()};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/followlist', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/followlist',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = FollowUserWrapper.fromJson(_result.data);
     return value;
   }

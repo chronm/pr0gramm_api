@@ -89,7 +89,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
   @override
-  Future<UserInfo> requestEmailChange(String currentPassword, String email, {String nonce}) => _userApi.requestEmailChange(currentPassword, email, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+  Future<UserInfo> requestEmailChange(String currentPassword, String email, {String nonce}) =>
+      _userApi.requestEmailChange(currentPassword, email, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Update site settings
   ///
@@ -100,7 +101,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
   @override
-  Future<UserInfo> changeSiteSettings(bool likesArePublic, bool favUpvote, bool showAds, UserStatus userStatus, Theme theme, {String nonce}) => _userApi.changeSiteSettings(likesArePublic, favUpvote, showAds, userStatus, theme, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+  Future<UserInfo> changeSiteSettings(bool likesArePublic, bool favUpvote, bool showAds, UserStatus userStatus, Theme theme, {String nonce}) =>
+      _userApi.changeSiteSettings(likesArePublic, favUpvote, showAds, userStatus, theme, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Update site security
   ///
@@ -221,7 +223,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Upload a file providing only its filePath
   ///
   /// You can also build the FormData by yourself and use [uploadWithFormData()].
-  Future<Uploaded> upload(String filePath) => _itemsApi.uploadWithFormData(FormData.fromMap({'image': MultipartFile.fromFileSync(filePath, filename: filePath, contentType: MediaType.fromFilePath(filePath).convert())}));
+  Future<Uploaded> upload(String filePath) =>
+      _itemsApi.uploadWithFormData(FormData.fromMap({'image': MultipartFile.fromFileSync(filePath, filename: filePath, contentType: MediaType.fromFilePath(filePath).convert())}));
 
   /// Post an item
   ///
@@ -247,8 +250,14 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   ///
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
-  Future<Posted> postWithScheduledDateTime(String imageUrl, ItemFlag sfwstatus, String tags, String comment, String key, {String nonce, bool checkSimilar = true, bool processAsync = true, DateTime scheduled}) =>
-      _itemsApi.post(imageUrl, sfwstatus, tags, comment, key, processAsync: processAsync, checkSimilar: checkSimilar, date: '${scheduled.year}-${scheduled.month}-${scheduled.day}', time: '${scheduled.hour}:${scheduled.minute}', nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+  Future<Posted> postWithScheduledDateTime(String imageUrl, ItemFlag sfwstatus, String tags, String comment, String key,
+          {String nonce, bool checkSimilar = true, bool processAsync = true, DateTime scheduled}) =>
+      _itemsApi.post(imageUrl, sfwstatus, tags, comment, key,
+          processAsync: processAsync,
+          checkSimilar: checkSimilar,
+          date: '${scheduled.year}-${scheduled.month}-${scheduled.day}',
+          time: '${scheduled.hour}:${scheduled.minute}',
+          nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Combine uploading and posting
   ///
@@ -265,7 +274,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
     DateTime scheduled,
   }) async {
     final uploaded = await upload(filePath);
-    return postWithScheduledDateTime(null, sfwstatus, tags, comment, uploaded.key, checkSimilar: checkSimilar, processAsync: processAsync, scheduled: scheduled, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+    return postWithScheduledDateTime(null, sfwstatus, tags, comment, uploaded.key,
+        checkSimilar: checkSimilar, processAsync: processAsync, scheduled: scheduled, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
   }
 
   /// Post with a url
@@ -282,7 +292,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
     bool processAsync,
     DateTime scheduled,
   }) =>
-      postWithScheduledDateTime(imageUrl, sfwstatus, tags, comment, null, checkSimilar: checkSimilar, processAsync: processAsync, scheduled: scheduled, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+      postWithScheduledDateTime(imageUrl, sfwstatus, tags, comment, null,
+          checkSimilar: checkSimilar, processAsync: processAsync, scheduled: scheduled, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Get a list of scheduled posts
   @override
@@ -312,7 +323,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
   @override
-  Future<void> postComment(String comment, int itemId, {String nonce, int parentId = 0}) => _commentsApi.postComment(comment, itemId, parentId: parentId, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+  Future<void> postComment(String comment, int itemId, {String nonce, int parentId = 0}) =>
+      _commentsApi.postComment(comment, itemId, parentId: parentId, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Mark a comment as favorite
   ///
@@ -336,7 +348,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
   @override
-  Future<void> report(String reason, String customReason, {String nonce, int userId, int commentId, int itemId}) => _contactApi.report(reason, customReason, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce, userId: userId, commentId: commentId, itemId: itemId);
+  Future<void> report(String reason, String customReason, {String nonce, int userId, int commentId, int itemId}) =>
+      _contactApi.report(reason, customReason, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce, userId: userId, commentId: commentId, itemId: itemId);
 
   /// Send a message
   ///

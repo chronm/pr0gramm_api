@@ -21,7 +21,8 @@ class _TagsApi implements TagsApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/top', queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/top',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = SuggestedTags.fromJson(_result.data);
     return value;
   }
@@ -36,7 +37,8 @@ class _TagsApi implements TagsApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _data = {'tags': tags, 'itemId': itemIdm, '_nonce': nonce};
     _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>('/add', queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final _result = await _dio.request<Map<String, dynamic>>('/add',
+        queryParameters: queryParameters, options: RequestOptions(method: 'POST', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
     final value = AddedTags.fromJson(_result.data);
     return value;
   }
