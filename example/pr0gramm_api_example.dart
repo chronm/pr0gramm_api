@@ -7,4 +7,5 @@ void main() async {
   var cookieManager = Pr0grammCookieManager(DefaultCookieJar());
   var dio = Dio()..interceptors.add(cookieManager);
   var pr0gramm = Pr0gramm(dio);
+  await pr0gramm.getCaptcha();
 }
