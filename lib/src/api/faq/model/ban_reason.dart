@@ -23,6 +23,7 @@ class BanReasonWrapper {
       _$BanReasonWrapperFromJson(json);
 }
 
+/// Look at ban_reasons.xlsx in the root of this library for explanation
 class BanReasonType {
   static const BanReasonType UPLOAD = BanReasonType._(1);
   static const BanReasonType COMMENT = BanReasonType._(2);
