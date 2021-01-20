@@ -8,23 +8,26 @@ part 'item.g.dart';
 @JsonSerializable()
 @DateTimeConverter()
 class Item {
-  int id;
-  int promoted;
-  int userId;
-  int up;
-  int down;
-  DateTime created;
-  String _image;
-  String _thumb;
-  String _fullsize;
-  int width;
-  int height;
-  bool audio;
-  String source;
-  ItemFlags flags;
-  String user;
-  UserMark mark;
-  int gift;
+  final int id;
+  final int promoted;
+  final int userId;
+  final int up;
+  final int down;
+  final DateTime created;
+  @JsonKey(name: 'image')
+  final String rawImage;
+  @JsonKey(name: 'thumb')
+  final String rawThumb;
+  @JsonKey(name: 'fullsize')
+  final String rawFullsize;
+  final int width;
+  final int height;
+  final bool audio;
+  final String source;
+  final ItemFlags flags;
+  final String user;
+  final UserMark mark;
+  final int gift;
 
   Item({
     this.id,
@@ -33,9 +36,9 @@ class Item {
     this.up,
     this.down,
     this.created,
-    String image,
-    String thumb,
-    String fullsize,
+    this.rawImage,
+    this.rawThumb,
+    this.rawFullsize,
     this.width,
     this.height,
     this.audio,
@@ -44,9 +47,7 @@ class Item {
     this.user,
     this.mark,
     this.gift,
-  })  : _image = image,
-        _thumb = thumb,
-        _fullsize = fullsize;
+  });
 
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 
@@ -54,14 +55,17 @@ class Item {
 
   @JsonKey(ignore: true)
   PostType get mediaType {
-    if (_image.endsWith('.gif')) return PostType.GIF;
-    if (_image.endsWith('.mp4')) return PostType.VIDEO;
+    if (image.endsWith('.gif')) return PostType.GIF;
+    if (image.endsWith('.mp4')) return PostType.VIDEO;
     return PostType.IMAGE;
   }
 
-  String get thumb => 'https://thumb.pr0gramm.com/$_thumb';
-  String get image => 'https://img.pr0gramm.com/$_image';
-  String get fullsize => 'https://full.pr0gramm.com/$_fullsize';
+  @JsonKey(ignore: true)
+  String get thumb => 'https://thumb.pr0gramm.com/$rawThumb';
+  @JsonKey(ignore: true)
+  String get image => 'https://img.pr0gramm.com/$rawImage';
+  @JsonKey(ignore: true)
+  String get fullsize => 'https://full.pr0gramm.com/$rawFullsize';
 }
 
 @JsonSerializable()
