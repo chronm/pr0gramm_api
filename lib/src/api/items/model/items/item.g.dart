@@ -35,9 +35,6 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'up': instance.up,
       'down': instance.down,
       'created': const DateTimeConverter().toJson(instance.created),
-      'image': instance.image,
-      'thumb': instance.thumb,
-      'fullsize': instance.fullsize,
       'width': instance.width,
       'height': instance.height,
       'audio': instance.audio,
@@ -46,6 +43,9 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'user': instance.user,
       'mark': _$UserMarkEnumMap[instance.mark],
       'gift': instance.gift,
+      'thumb': instance.thumb,
+      'image': instance.image,
+      'fullsize': instance.fullsize,
     };
 
 T _$enumDecode<T>(

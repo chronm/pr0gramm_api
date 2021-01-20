@@ -14,9 +14,9 @@ class Item {
   int up;
   int down;
   DateTime created;
-  String image;
-  String thumb;
-  String fullsize;
+  String _image;
+  String _thumb;
+  String _fullsize;
   int width;
   int height;
   bool audio;
@@ -33,9 +33,9 @@ class Item {
     this.up,
     this.down,
     this.created,
-    this.image,
-    this.thumb,
-    this.fullsize,
+    String image,
+    String thumb,
+    String fullsize,
     this.width,
     this.height,
     this.audio,
@@ -44,18 +44,24 @@ class Item {
     this.user,
     this.mark,
     this.gift,
-  });
+  })  : _image = image,
+        _thumb = thumb,
+        _fullsize = fullsize;
 
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 
+  Map<String, dynamic> toJson() => _$ItemToJson(this);
+
   @JsonKey(ignore: true)
   PostType get mediaType {
-    if (image.endsWith('.gif')) return PostType.GIF;
-    if (image.endsWith('.mp4')) return PostType.VIDEO;
+    if (_image.endsWith('.gif')) return PostType.GIF;
+    if (_image.endsWith('.mp4')) return PostType.VIDEO;
     return PostType.IMAGE;
   }
 
-  Map<String, dynamic> toJson() => _$ItemToJson(this);
+  String get thumb => 'https://thumb.pr0gramm.com/$_thumb';
+  String get image => 'https://img.pr0gramm.com/$_image';
+  String get fullsize => 'https://full.pr0gramm.com/$_fullsize';
 }
 
 @JsonSerializable()
