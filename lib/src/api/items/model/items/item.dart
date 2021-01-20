@@ -54,6 +54,8 @@ class Item {
     if (image.endsWith('.mp4')) return PostType.VIDEO;
     return PostType.IMAGE;
   }
+
+  Map<String, dynamic> toJson() => _$ItemToJson(this);
 }
 
 @JsonSerializable()
