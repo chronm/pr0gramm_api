@@ -43,7 +43,7 @@ abstract class UserApi {
   @FormUrlEncoded()
   @BoolConverter()
   Future<UserInfo> changeSiteSettings(
-      @Field('likesArePublic') bool likesArePublic, @Field('favUpvote') bool favUpvote, @Field('showAds') bool showAds, @Field('userStatus') UserStatus userStatus, @Field('theme') Theme theme,
+      @Field('likesArePublic') bool likesArePublic, @Field('favUpvote') bool favUpvote, @Field('showAds') bool showAds, @Field('userStatus') UserStatus userStatus, @Field('theme') Pr0grammTheme theme,
       {@Field('_nonce') String nonce});
 
   @POST('/changesecurity')

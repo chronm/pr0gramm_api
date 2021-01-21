@@ -101,7 +101,7 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
   @override
-  Future<UserInfo> changeSiteSettings(bool likesArePublic, bool favUpvote, bool showAds, UserStatus userStatus, Theme theme, {String nonce}) =>
+  Future<UserInfo> changeSiteSettings(bool likesArePublic, bool favUpvote, bool showAds, UserStatus userStatus, Pr0grammTheme theme, {String nonce}) =>
       _userApi.changeSiteSettings(likesArePublic, favUpvote, showAds, userStatus, theme, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Update site security

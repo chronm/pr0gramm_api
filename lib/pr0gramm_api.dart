@@ -24,7 +24,7 @@ export 'src/api/profile/model/info/app_link.dart';
 export 'src/api/profile/model/info/badge.dart';
 export 'src/api/profile/model/info/collection.dart';
 export 'src/api/profile/model/info/profile.dart';
-export 'src/api/profile/model/info/theme.dart';
+export 'src/api/profile/model/info/pr0gramm_theme.dart';
 export 'src/api/profile/model/info/upload.dart';
 export 'src/api/profile/model/info/user.dart';
 export 'src/api/profile/model/info/user_mark.dart';
