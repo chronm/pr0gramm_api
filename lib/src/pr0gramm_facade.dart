@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:pr0gramm_api/src/api/bookmark/bookmark_api.dart';
 import 'package:pr0gramm_api/src/util/pr0gramm_cookie_manager.dart';
 
 import '../pr0gramm_api.dart';
@@ -12,7 +13,7 @@ import 'api/profile/profile_api.dart';
 import 'api/tags/tags_api.dart';
 import 'api/user/user_api.dart';
 
-class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileApi, TagsApi, UserApi, FaqApi, ThumbApi, ImageApi, VideoApi, BadgeApi {
+class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileApi, TagsApi, UserApi, FaqApi, ThumbApi, ImageApi, VideoApi, BadgeApi, BookmarkApi {
   final ProfileApi _profileApi;
   final UserApi _userApi;
   final ItemsApi _itemsApi;
@@ -25,6 +26,7 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   final ImageApi _imageApi;
   final VideoApi _videoApi;
   final BadgeApi _badgeApi;
+  final BookmarkApi _bookmarkApi;
   final Pr0grammCookieManager _pr0grammCookieManager;
 
   Pr0gramm(Dio dio)
@@ -40,6 +42,7 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
         _imageApi = ImageApi(dio),
         _videoApi = VideoApi(dio),
         _badgeApi = BadgeApi(dio),
+        _bookmarkApi = BookmarkApi(dio),
         _pr0grammCookieManager = dio.interceptors.firstWhere((interceptor) => interceptor is Pr0grammCookieManager);
 
   /// Get a captcha
@@ -422,4 +425,8 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Load a badge from [urlPath] and save it to [savePath]
   @override
   Future<void> loadBadge(String urlPath, String savePath) => _badgeApi.loadBadge(urlPath, savePath);
+
+  /// Load bookmarks
+  @override
+  Future<BookmarkWrapper> getBookmarks() => _bookmarkApi.getBookmarks();
 }

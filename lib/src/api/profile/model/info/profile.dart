@@ -10,7 +10,7 @@ class Profile {
   List<Badge> badges;
   bool blocked;
   int collectedCount;
-  List<Collection> collections;
+  List<BookmarkedCollection> collections;
   int commentCount;
   List<ProfileComment> comments;
   @JsonKey(name: 'comments_likes')

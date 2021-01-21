@@ -12,7 +12,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
     badges: (json['badges'] as List)?.map((e) => e == null ? null : Badge.fromJson(e as Map<String, dynamic>))?.toList(),
     blocked: json['blocked'] as bool,
     collectedCount: json['collectedCount'] as int,
-    collections: (json['collections'] as List)?.map((e) => e == null ? null : Collection.fromJson(e as Map<String, dynamic>))?.toList(),
+    collections: (json['collections'] as List)?.map((e) => e == null ? null : BookmarkedCollection.fromJson(e as Map<String, dynamic>))?.toList(),
     commentCount: json['commentCount'] as int,
     comments: (json['comments'] as List)?.map((e) => e == null ? null : ProfileComment.fromJson(e as Map<String, dynamic>))?.toList(),
     commentsLikes: (json['comments_likes'] as List)?.map((e) => e == null ? null : LikedComment.fromJson(e as Map<String, dynamic>))?.toList(),

@@ -48,5 +48,8 @@ export 'src/api/user/model/user_info/account.dart';
 export 'src/api/user/model/user_info/invited_user.dart';
 export 'src/api/user/model/user_info/user_info.dart';
 export 'src/api/user/model/user_status.dart';
+export 'src/api/bookmark/model/bookmark.dart';
+export 'src/api/bookmark/model/bookmarked_collection.dart';
+export 'src/api/bookmark/model/trending.dart';
 export 'src/pr0gramm_facade.dart';
 export 'src/util/pr0gramm_cookie_manager.dart';
