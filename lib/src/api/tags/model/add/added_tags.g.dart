@@ -14,6 +14,6 @@ AddedTags _$AddedTagsFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$AddedTagsToJson(AddedTags instance) => <String, dynamic>{
-      'tags': instance.tags,
+      'tags': instance.tags?.map((e) => e?.toJson())?.toList(),
       'tagIds': instance.tagIds,
     };

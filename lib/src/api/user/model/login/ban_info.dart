@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ban_info.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BanInfo {
   String reason;
   bool banned;
@@ -15,4 +15,6 @@ class BanInfo {
   });
 
   factory BanInfo.fromJson(Map<String, dynamic> json) => _$BanInfoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BanInfoToJson(this);
 }

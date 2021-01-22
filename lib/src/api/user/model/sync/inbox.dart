@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'inbox.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Inbox {
   int comments;
   int mentions;
@@ -19,4 +19,6 @@ class Inbox {
   });
 
   factory Inbox.fromJson(Map<String, dynamic> json) => _$InboxFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InboxToJson(this);
 }

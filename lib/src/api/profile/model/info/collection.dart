@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'collection.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class CollectionItem {
   int id;
   String thumb;
@@ -17,9 +17,11 @@ class CollectionItem {
   });
 
   factory CollectionItem.fromJson(Map<String, dynamic> json) => _$CollectionItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CollectionItemToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Collection {
   int id;
   bool isDefault;
@@ -38,4 +40,6 @@ class Collection {
   });
 
   factory Collection.fromJson(Map<String, dynamic> json) => _$CollectionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CollectionToJson(this);
 }

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'cookie.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Cookie {
   @JsonKey(name: 'n')
   String name;
@@ -20,4 +20,6 @@ class Cookie {
   });
 
   factory Cookie.fromJson(Map<String, dynamic> json) => _$CookieFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CookieToJson(this);
 }

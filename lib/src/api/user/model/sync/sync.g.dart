@@ -15,9 +15,21 @@ Sync _$SyncFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$SyncToJson(Sync instance) => <String, dynamic>{
-      'inbox': instance.inbox,
+      'inbox': instance.inbox?.toJson(),
       'logLength': instance.logLength,
       'log': instance.log,
+    };
+
+ItemInCollection _$ItemInCollectionFromJson(Map<String, dynamic> json) {
+  return ItemInCollection(
+    json['collectionId'] as int,
+    json['collect'] as bool,
+  );
+}
+
+Map<String, dynamic> _$ItemInCollectionToJson(ItemInCollection instance) => <String, dynamic>{
+      'collectionId': instance.collectionId,
+      'collect': instance.collect,
     };
 
 Voted _$VotedFromJson(Map<String, dynamic> json) {

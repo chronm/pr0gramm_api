@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'added_tags.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class AddedTags {
   List<Tag> tags;
   List<String> tagIds;
@@ -15,4 +15,6 @@ class AddedTags {
   });
 
   factory AddedTags.fromJson(Map<String, dynamic> json) => _$AddedTagsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AddedTagsToJson(this);
 }

@@ -24,7 +24,7 @@ Map<String, dynamic> _$PrivateMessageToJson(PrivateMessage instance) => <String,
       'mark': _$UserMarkEnumMap[instance.mark],
       'message': instance.message,
       'name': instance.name,
-      'read': instance.read,
+      'read': instance.read?.toJson(),
       'sent': instance.sent,
     };
 

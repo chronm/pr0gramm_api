@@ -19,5 +19,5 @@ Map<String, dynamic> _$LoginToJson(Login instance) => <String, dynamic>{
       'error': instance.error,
       'success': instance.success,
       'identifier': instance.identifier,
-      'ban': instance.ban,
+      'ban': instance.ban?.toJson(),
     };

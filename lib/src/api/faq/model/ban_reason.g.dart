@@ -25,5 +25,5 @@ BanReasonWrapper _$BanReasonWrapperFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$BanReasonWrapperToJson(BanReasonWrapper instance) => <String, dynamic>{
-      'rules': instance.rules,
+      'rules': instance.rules?.map((e) => e?.toJson())?.toList(),
     };

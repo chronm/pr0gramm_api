@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'login.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Login {
   String error;
   bool success;
@@ -21,6 +21,8 @@ class Login {
   });
 
   factory Login.fromJson(Map<String, dynamic> json) => _$LoginFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LoginToJson(this);
 
   String get id => cookie.id;
 

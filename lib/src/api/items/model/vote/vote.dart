@@ -10,4 +10,6 @@ class VoteAction {
   static List<VoteAction> get values => [DOWNVOTE, NEUTRAL, UPVOTE];
 
   factory VoteAction.fromJson(int json) => values.firstWhere((vote) => vote.value == json);
+
+  int toJson() => value;
 }

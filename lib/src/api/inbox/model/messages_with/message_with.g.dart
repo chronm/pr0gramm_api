@@ -16,6 +16,6 @@ MessageWith _$MessageWithFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$MessageWithToJson(MessageWith instance) => <String, dynamic>{
       'atEnd': instance.atEnd,
-      'messages': instance.messages,
-      'with': instance.user,
+      'messages': instance.messages?.map((e) => e?.toJson())?.toList(),
+      'with': instance.user?.toJson(),
     };

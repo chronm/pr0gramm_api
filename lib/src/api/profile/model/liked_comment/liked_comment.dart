@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'liked_comment.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class LikedComment {
   DateTime ccreated;
   DateTime created;
@@ -32,9 +32,11 @@ class LikedComment {
   });
 
   factory LikedComment.fromJson(Map<String, dynamic> json) => _$LikedCommentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LikedCommentToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class LikedCommentWrapper {
   bool likesArePublic;
   List<LikedComment> comments;
@@ -51,4 +53,6 @@ class LikedCommentWrapper {
   });
 
   factory LikedCommentWrapper.fromJson(Map<String, dynamic> json) => _$LikedCommentWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LikedCommentWrapperToJson(this);
 }

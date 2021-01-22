@@ -17,7 +17,7 @@ CollectionItem _$CollectionItemFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$CollectionItemToJson(CollectionItem instance) => <String, dynamic>{
       'id': instance.id,
       'thumb': instance.thumb,
-      'flags': instance.flags,
+      'flags': instance.flags?.toJson(),
     };
 
 Collection _$CollectionFromJson(Map<String, dynamic> json) {
@@ -35,7 +35,7 @@ Map<String, dynamic> _$CollectionToJson(Collection instance) => <String, dynamic
       'id': instance.id,
       'isDefault': instance.isDefault,
       'isPublic': instance.isPublic,
-      'items': instance.items,
+      'items': instance.items?.map((e) => e?.toJson())?.toList(),
       'keyword': instance.keyword,
       'name': instance.name,
     };

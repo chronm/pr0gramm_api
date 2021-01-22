@@ -4,7 +4,7 @@ import '../../../../pr0gramm_api.dart';
 
 part 'message.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Message {
   bool blocked;
   DateTime created;
@@ -39,13 +39,17 @@ class Message {
   });
 
   factory Message.fromJson(Map<String, dynamic> json) => _$MessageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MessageToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class MessageWrapper {
   List<Message> messages;
 
   MessageWrapper({this.messages});
 
   factory MessageWrapper.fromJson(Map<String, dynamic> json) => _$MessageWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MessageWrapperToJson(this);
 }

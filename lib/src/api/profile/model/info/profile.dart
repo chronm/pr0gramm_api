@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'profile.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Profile {
   List<AppLink> appLinks;
   List<Badge> badges;
@@ -48,4 +48,6 @@ class Profile {
   });
 
   factory Profile.fromJson(Map<String, dynamic> json) => _$ProfileFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProfileToJson(this);
 }

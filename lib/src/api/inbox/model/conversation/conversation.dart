@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'conversation.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Conversation {
   bool blocked;
   DateTime lastMessage;
@@ -21,9 +21,11 @@ class Conversation {
   });
 
   factory Conversation.fromJson(Map<String, dynamic> json) => _$ConversationFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ConversationToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ConversationWrapper {
   bool atEnd;
   List<Conversation> conversations;
@@ -34,4 +36,6 @@ class ConversationWrapper {
   });
 
   factory ConversationWrapper.fromJson(Map<String, dynamic> json) => _$ConversationWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ConversationWrapperToJson(this);
 }

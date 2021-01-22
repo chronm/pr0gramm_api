@@ -73,5 +73,5 @@ BlockedUserWrapper _$BlockedUserWrapperFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$BlockedUserWrapperToJson(BlockedUserWrapper instance) => <String, dynamic>{
-      'blockedUsers': instance.blockedUsers,
+      'blockedUsers': instance.blockedUsers?.map((e) => e?.toJson())?.toList(),
     };

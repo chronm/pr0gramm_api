@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'simple_user.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SimpleUser {
   @JsonKey(nullable: true)
   int id;
@@ -21,4 +21,6 @@ class SimpleUser {
   });
 
   factory SimpleUser.fromJson(Map<String, dynamic> json) => _$SimpleUserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SimpleUserToJson(this);
 }

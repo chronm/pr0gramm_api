@@ -95,8 +95,8 @@ LikedCommentWrapper _$LikedCommentWrapperFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$LikedCommentWrapperToJson(LikedCommentWrapper instance) => <String, dynamic>{
       'likesArePublic': instance.likesArePublic,
-      'comments': instance.comments,
+      'comments': instance.comments?.map((e) => e?.toJson())?.toList(),
       'hasOlder': instance.hasOlder,
       'hasNewer': instance.hasNewer,
-      'user': instance.user,
+      'user': instance.user?.toJson(),
     };

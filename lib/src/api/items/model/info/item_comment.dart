@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'item_comment.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ItemComment {
   int id;
   int parent;
@@ -29,4 +29,6 @@ class ItemComment {
   });
 
   factory ItemComment.fromJson(Map<String, dynamic> json) => _$ItemCommentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemCommentToJson(this);
 }

@@ -3,7 +3,7 @@ import 'package:pr0gramm_api/src/util/converters.dart';
 
 part 'badge.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 @DateTimeConverter()
 class Badge {
   String link;
@@ -19,4 +19,6 @@ class Badge {
   });
 
   factory Badge.fromJson(Map<String, dynamic> json) => _$BadgeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BadgeToJson(this);
 }

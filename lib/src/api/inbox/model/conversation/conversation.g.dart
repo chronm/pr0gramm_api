@@ -81,5 +81,5 @@ ConversationWrapper _$ConversationWrapperFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$ConversationWrapperToJson(ConversationWrapper instance) => <String, dynamic>{
       'atEnd': instance.atEnd,
-      'conversations': instance.conversations,
+      'conversations': instance.conversations?.map((e) => e?.toJson())?.toList(),
     };

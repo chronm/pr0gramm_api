@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'profile_comment.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ProfileComment {
   int id;
   int up;
@@ -25,9 +25,11 @@ class ProfileComment {
   });
 
   factory ProfileComment.fromJson(Map<String, dynamic> json) => _$ProfileCommentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProfileCommentToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ProfileCommentWrapper {
   List<ProfileComment> comments;
   bool hasOlder;
@@ -42,4 +44,6 @@ class ProfileCommentWrapper {
   });
 
   factory ProfileCommentWrapper.fromJson(Map<String, dynamic> json) => _$ProfileCommentWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProfileCommentWrapperToJson(this);
 }

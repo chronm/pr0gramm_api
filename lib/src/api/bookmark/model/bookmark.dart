@@ -4,7 +4,7 @@ import '../../../../pr0gramm_api.dart';
 
 part 'bookmark.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Bookmark {
   String link;
   String name;
@@ -12,9 +12,11 @@ class Bookmark {
   Bookmark({this.link, this.name});
 
   factory Bookmark.fromJson(Map<String, dynamic> json) => _$BookmarkFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BookmarkToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BookmarkWrapper {
   List<Bookmark> bookmarks;
   List<BookmarkedCollection> collections;
@@ -23,4 +25,6 @@ class BookmarkWrapper {
   BookmarkWrapper({this.bookmarks, this.collections, this.trending});
 
   factory BookmarkWrapper.fromJson(Map<String, dynamic> json) => _$BookmarkWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BookmarkWrapperToJson(this);
 }

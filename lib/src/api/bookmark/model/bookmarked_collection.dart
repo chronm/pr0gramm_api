@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'bookmarked_collection.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BookmarkedCollection {
   int id;
   bool isDefault;
@@ -19,4 +19,6 @@ class BookmarkedCollection {
   });
 
   factory BookmarkedCollection.fromJson(Map<String, dynamic> json) => _$BookmarkedCollectionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BookmarkedCollectionToJson(this);
 }

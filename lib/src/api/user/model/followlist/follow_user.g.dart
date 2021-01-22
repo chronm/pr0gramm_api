@@ -83,5 +83,5 @@ FollowUserWrapper _$FollowUserWrapperFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$FollowUserWrapperToJson(FollowUserWrapper instance) => <String, dynamic>{
-      'list': instance.list,
+      'list': instance.list?.map((e) => e?.toJson())?.toList(),
     };

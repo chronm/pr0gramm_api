@@ -3,7 +3,7 @@ import 'package:pr0gramm_api/pr0gramm_api.dart';
 
 part 'private_message.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class PrivateMessage {
   DateTime created;
   int id;
@@ -24,4 +24,6 @@ class PrivateMessage {
   });
 
   factory PrivateMessage.fromJson(Map<String, dynamic> json) => _$PrivateMessageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PrivateMessageToJson(this);
 }

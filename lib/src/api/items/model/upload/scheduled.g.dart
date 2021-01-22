@@ -33,5 +33,5 @@ ScheduledWrapper _$ScheduledWrapperFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$ScheduledWrapperToJson(ScheduledWrapper instance) => <String, dynamic>{
-      'items': instance.items,
+      'items': instance.items?.map((e) => e?.toJson())?.toList(),
     };

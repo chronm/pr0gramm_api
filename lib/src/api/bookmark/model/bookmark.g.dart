@@ -27,7 +27,7 @@ BookmarkWrapper _$BookmarkWrapperFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$BookmarkWrapperToJson(BookmarkWrapper instance) => <String, dynamic>{
-      'bookmarks': instance.bookmarks,
-      'collections': instance.collections,
-      'trending': instance.trending,
+      'bookmarks': instance.bookmarks?.map((e) => e?.toJson())?.toList(),
+      'collections': instance.collections?.map((e) => e?.toJson())?.toList(),
+      'trending': instance.trending?.map((e) => e?.toJson())?.toList(),
     };

@@ -5,7 +5,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'follow_user.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 @DateTimeConverter()
 @BoolConverter()
 class FollowUser {
@@ -20,13 +20,17 @@ class FollowUser {
   FollowUser({this.followCreated, this.itemId, this.lastPost, this.mark, this.name, this.subscribed, this.thumb});
 
   factory FollowUser.fromJson(Map<String, dynamic> json) => _$FollowUserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FollowUserToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FollowUserWrapper {
   List<FollowUser> list;
 
   FollowUserWrapper({this.list});
 
   factory FollowUserWrapper.fromJson(Map<String, dynamic> json) => _$FollowUserWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FollowUserWrapperToJson(this);
 }

@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'invited_user.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class InvitedUser {
   String name;
   UserMark mark;
@@ -19,4 +19,6 @@ class InvitedUser {
   });
 
   factory InvitedUser.fromJson(Map<String, dynamic> json) => _$InvitedUserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InvitedUserToJson(this);
 }

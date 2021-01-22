@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ban_reason.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BanReason {
   String banReason;
   double number;
@@ -10,15 +10,19 @@ class BanReason {
   BanReason({this.banReason, this.number});
 
   factory BanReason.fromJson(Map<String, dynamic> json) => _$BanReasonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BanReasonToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BanReasonWrapper {
   List<BanReason> rules;
 
   BanReasonWrapper({this.rules});
 
   factory BanReasonWrapper.fromJson(Map<String, dynamic> json) => _$BanReasonWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BanReasonWrapperToJson(this);
 }
 
 /// Look at ban_reasons.xlsx in the root of this library for explanation

@@ -5,7 +5,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'item.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 @DateTimeConverter()
 class Item {
   final int id;
@@ -68,7 +68,7 @@ class Item {
   String get fullsize => 'https://full.pr0gramm.com/$rawFullsize';
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ItemWrapper {
   bool atEnd;
   bool atStart;
@@ -83,4 +83,6 @@ class ItemWrapper {
   });
 
   factory ItemWrapper.fromJson(Map<String, dynamic> json) => _$ItemWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemWrapperToJson(this);
 }

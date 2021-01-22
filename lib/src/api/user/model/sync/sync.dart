@@ -2,13 +2,12 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tuple/tuple.dart';
 
 import '../../../../../pr0gramm_api.dart';
 
 part 'sync.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Sync {
   Inbox inbox;
   int logLength;
@@ -24,7 +23,7 @@ class Sync {
   @JsonKey(ignore: true)
   Map<int, bool> commentFavs;
   @JsonKey(ignore: true)
-  Map<int, Tuple2<int, bool>> collectedItems;
+  Map<int, ItemInCollection> collectedItems;
 
   Sync._(this.inbox, this.logLength, this.votedItems, this.votedComments, this.votedTags, this.follows, this.commentFavs, this.collectedItems);
 
@@ -34,13 +33,13 @@ class Sync {
     var votedTags = <int, Vote>{};
     var follows = <int, FollowState>{};
     var commentFavs = <int, bool>{};
-    var collectedItems = <int, Tuple2<int, bool>>{};
+    var collectedItems = <int, ItemInCollection>{};
 
     void decodeLog(String log) {
       var data = base64Decode(log).buffer.asByteData();
       var length = data.lengthInBytes / 5;
 
-      Tuple2<int, bool> pendingCollection;
+      ItemInCollection pendingCollection;
 
       for (var index in List.generate(length.ceil(), (index) => index)) {
         var id = data.getUint32(index * 5, Endian.little);
@@ -74,10 +73,10 @@ class Sync {
             commentFavs.putIfAbsent(id, () => false);
             break;
           case _ACTION_ITEM_COLLECT:
-            pendingCollection = Tuple2(id, true);
+            pendingCollection = ItemInCollection(id, true);
             break;
           case _ACTION_ITEM_UNCOLLECT:
-            pendingCollection = Tuple2(id, false);
+            pendingCollection = ItemInCollection(id, false);
             break;
           case _ACTION_COLLECTION_ID:
             collectedItems.putIfAbsent(id, () => pendingCollection);
@@ -91,6 +90,20 @@ class Sync {
   }
 
   factory Sync.fromJson(Map<String, dynamic> json) => _$SyncFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SyncToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ItemInCollection {
+  final int collectionId;
+  final bool collect;
+
+  ItemInCollection(this.collectionId, this.collect);
+
+  factory ItemInCollection.fromJson(Map<String, dynamic> json) => _$ItemInCollectionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemInCollectionToJson(this);
 }
 
 Map<int, Voted> _VOTE_ACTIONS = {
@@ -123,7 +136,7 @@ enum Vote { DOWN, NEUTRAL, UP }
 enum VoteTarget { ITEM, COMMENT, TAG }
 enum FollowState { FOLLOW, NONE, SUBSCRIBED }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Voted {
   final Vote vote;
   final VoteTarget target;

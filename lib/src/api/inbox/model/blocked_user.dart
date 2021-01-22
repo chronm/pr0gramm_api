@@ -3,7 +3,7 @@ import 'package:pr0gramm_api/pr0gramm_api.dart';
 
 part 'blocked_user.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BlockedUser {
   UserMark mark;
   String name;
@@ -14,13 +14,17 @@ class BlockedUser {
   });
 
   factory BlockedUser.fromJson(Map<String, dynamic> json) => _$BlockedUserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BlockedUserToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BlockedUserWrapper {
   List<BlockedUser> blockedUsers;
 
   BlockedUserWrapper({this.blockedUsers});
 
   factory BlockedUserWrapper.fromJson(Map<String, dynamic> json) => _$BlockedUserWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BlockedUserWrapperToJson(this);
 }

@@ -4,7 +4,7 @@ import '../../../../../pr0gramm_api.dart';
 
 part 'account.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Account {
   bool likesArePublic;
   bool deviceMail;
@@ -27,4 +27,6 @@ class Account {
   });
 
   factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AccountToJson(this);
 }

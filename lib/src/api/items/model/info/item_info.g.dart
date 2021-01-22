@@ -14,6 +14,6 @@ ItemInfo _$ItemInfoFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$ItemInfoToJson(ItemInfo instance) => <String, dynamic>{
-      'tags': instance.tags,
-      'comments': instance.comments,
+      'tags': instance.tags?.map((e) => e?.toJson())?.toList(),
+      'comments': instance.comments?.map((e) => e?.toJson())?.toList(),
     };

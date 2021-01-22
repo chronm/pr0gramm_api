@@ -16,8 +16,8 @@ UserInfo _$UserInfoFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$UserInfoToJson(UserInfo instance) => <String, dynamic>{
-      'account': instance.account,
-      'invited': instance.invited,
+      'account': instance.account?.toJson(),
+      'invited': instance.invited?.map((e) => e?.toJson())?.toList(),
       'payments': instance.payments,
       'invitedDetached': instance.invitedDetached,
     };

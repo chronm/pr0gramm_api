@@ -42,7 +42,7 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'height': instance.height,
       'audio': instance.audio,
       'source': instance.source,
-      'flags': instance.flags,
+      'flags': instance.flags?.toJson(),
       'user': instance.user,
       'mark': _$UserMarkEnumMap[instance.mark],
       'gift': instance.gift,
@@ -109,5 +109,5 @@ Map<String, dynamic> _$ItemWrapperToJson(ItemWrapper instance) => <String, dynam
       'atEnd': instance.atEnd,
       'atStart': instance.atStart,
       'error': instance.error,
-      'items': instance.items,
+      'items': instance.items?.map((e) => e?.toJson())?.toList(),
     };

@@ -38,8 +38,8 @@ ProfileCommentWrapper _$ProfileCommentWrapperFromJson(Map<String, dynamic> json)
 }
 
 Map<String, dynamic> _$ProfileCommentWrapperToJson(ProfileCommentWrapper instance) => <String, dynamic>{
-      'comments': instance.comments,
+      'comments': instance.comments?.map((e) => e?.toJson())?.toList(),
       'hasOlder': instance.hasOlder,
       'hasNewer': instance.hasNewer,
-      'user': instance.user,
+      'user': instance.user?.toJson(),
     };

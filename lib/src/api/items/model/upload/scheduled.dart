@@ -3,7 +3,7 @@ import 'package:pr0gramm_api/src/util/converters.dart';
 
 part 'scheduled.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 @DateTimeConverter()
 class Scheduled {
   String comment;
@@ -23,13 +23,17 @@ class Scheduled {
   });
 
   factory Scheduled.fromJson(Map<String, dynamic> json) => _$ScheduledFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ScheduledToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ScheduledWrapper {
   List<Scheduled> items;
 
   ScheduledWrapper({this.items});
 
   factory ScheduledWrapper.fromJson(Map<String, dynamic> json) => _$ScheduledWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ScheduledWrapperToJson(this);
 }

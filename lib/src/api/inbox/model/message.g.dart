@@ -28,7 +28,7 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
       'blocked': instance.blocked,
       'created': instance.created?.toIso8601String(),
-      'flags': instance.flags,
+      'flags': instance.flags?.toJson(),
       'id': instance.id,
       'image': instance.image,
       'itemId': instance.itemId,
@@ -39,7 +39,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
       'score': instance.score,
       'senderId': instance.senderId,
       'thumb': instance.thumb,
-      'type': instance.type,
+      'type': instance.type?.toJson(),
     };
 
 T _$enumDecode<T>(
@@ -97,5 +97,5 @@ MessageWrapper _$MessageWrapperFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$MessageWrapperToJson(MessageWrapper instance) => <String, dynamic>{
-      'messages': instance.messages,
+      'messages': instance.messages?.map((e) => e?.toJson())?.toList(),
     };
