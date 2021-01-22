@@ -16,6 +16,60 @@ Sync _$SyncFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$SyncToJson(Sync instance) => <String, dynamic>{
       'inbox': instance.inbox,
-      'log': instance.log,
       'logLength': instance.logLength,
+      'log': instance.log,
     };
+
+Voted _$VotedFromJson(Map<String, dynamic> json) {
+  return Voted(
+    vote: _$enumDecodeNullable(_$VoteEnumMap, json['vote']),
+    target: _$enumDecodeNullable(_$VoteTargetEnumMap, json['target']),
+  );
+}
+
+Map<String, dynamic> _$VotedToJson(Voted instance) => <String, dynamic>{
+      'vote': _$VoteEnumMap[instance.vote],
+      'target': _$VoteTargetEnumMap[instance.target],
+    };
+
+T _$enumDecode<T>(
+  Map<T, dynamic> enumValues,
+  dynamic source, {
+  T unknownValue,
+}) {
+  if (source == null) {
+    throw ArgumentError('A value must be provided. Supported values: '
+        '${enumValues.values.join(', ')}');
+  }
+
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
+
+  if (value == null && unknownValue == null) {
+    throw ArgumentError('`$source` is not one of the supported values: '
+        '${enumValues.values.join(', ')}');
+  }
+  return value ?? unknownValue;
+}
+
+T _$enumDecodeNullable<T>(
+  Map<T, dynamic> enumValues,
+  dynamic source, {
+  T unknownValue,
+}) {
+  if (source == null) {
+    return null;
+  }
+  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+}
+
+const _$VoteEnumMap = {
+  Vote.DOWN: 'DOWN',
+  Vote.NEUTRAL: 'NEUTRAL',
+  Vote.UP: 'UP',
+};
+
+const _$VoteTargetEnumMap = {
+  VoteTarget.ITEM: 'ITEM',
+  VoteTarget.COMMENT: 'COMMENT',
+  VoteTarget.TAG: 'TAG',
+};

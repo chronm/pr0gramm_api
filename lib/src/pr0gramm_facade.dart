@@ -209,7 +209,7 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
   @override
-  Future<void> voteItem(int id, Vote vote, {String nonce}) => _itemsApi.voteItem(id, vote, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+  Future<void> voteItem(int id, VoteAction vote, {String nonce}) => _itemsApi.voteItem(id, vote, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Check for rate limit
   ///
@@ -316,7 +316,7 @@ class Pr0gramm implements CommentsApi, ContactApi, InboxApi, ItemsApi, ProfileAp
   /// Uses [_pr0grammCookieManager] to get [nonce].
   /// You can provide [nonce] directly, but it is not recommended.
   @override
-  Future<void> voteComment(int id, Vote vote, {String nonce}) => _commentsApi.voteComment(id, vote, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
+  Future<void> voteComment(int id, VoteAction vote, {String nonce}) => _commentsApi.voteComment(id, vote, nonce: nonce ?? _pr0grammCookieManager.pr0grammNonce);
 
   /// Add a comment
   ///

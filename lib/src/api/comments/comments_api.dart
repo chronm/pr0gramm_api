@@ -11,7 +11,7 @@ abstract class CommentsApi {
   factory CommentsApi(Dio dio, {String baseUrl}) = _CommentsApi;
 
   @POST('/vote')
-  Future<void> voteComment(@Field('id') int id, @Field('vote') Vote vote, {@required @Field('_nonce') String nonce});
+  Future<void> voteComment(@Field('id') int id, @Field('vote') VoteAction vote, {@required @Field('_nonce') String nonce});
 
   @POST('/post')
   Future<void> postComment(@Field('comment') String comment, @Field('itemId') int itemId, {@required @Field('_nonce') String nonce, @Field('parentId') int parentId});
