@@ -88,6 +88,7 @@ const _$UserMarkEnumMap = {
   UserMark.Communityhelfer: 12,
   UserMark.SystemBot: 13,
   UserMark.NutzerBot: 14,
+  UserMark.AltHelfer: 15,
 };
 
 MessageWrapper _$MessageWrapperFromJson(Map<String, dynamic> json) {

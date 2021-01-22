@@ -64,6 +64,7 @@ const _$UserMarkEnumMap = {
   UserMark.Communityhelfer: 12,
   UserMark.SystemBot: 13,
   UserMark.NutzerBot: 14,
+  UserMark.AltHelfer: 15,
 };
 
 BlockedUserWrapper _$BlockedUserWrapperFromJson(Map<String, dynamic> json) {
